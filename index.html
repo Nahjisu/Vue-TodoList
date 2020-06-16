@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/69e7c77d03.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="./components/App.js" defer></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- Header -->
+        <section id="header">
+            <h2>Todo List</h2>
+        </section>
+
+        <!-- Input -->
+        <section id="input">
+            <div class="todo__input">
+                <input type="text" class="inputBox" placeholder="해야될 일 추가" v-model="query" v-on:keyup.enter="todoInput">
+            </div>
+        </section>
+
+        <!-- List -->
+        <section id="list">
+            <div class="todo__List">
+                <ul class="todo__items">
+                    <li>hi</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="todo__footer">
+                <span class="todo__clear">
+                    <h3>Clear All</h3>
+                </span>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

@@ -33,7 +33,9 @@
         <section id="list">
             <div class="todo__List">
                 <ul class="todo__items">
-                    <li>hi</li>
+                    <li v-for="todoItem in todoItems" v-bind:key="todoItem">
+                        {{ todoItem }}
+                    </li>
                 </ul>
             </div>
         </section>

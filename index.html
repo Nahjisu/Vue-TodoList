@@ -25,7 +25,7 @@
         <!-- Input -->
         <section id="input">
             <div class="todo__input">
-                <input type="text" class="inputBox" placeholder="해야될 일 추가" v-model="query" v-on:keyup.enter="todoInput">
+                <input type="text" class="inputBox shadow" placeholder="해야될 일 추가" v-model="query" v-on:keyup.enter="todoInput">
             </div>
         </section>
 
@@ -33,18 +33,24 @@
         <section id="list">
             <div class="todo__List">
                 <ul class="todo__items">
-                    <li v-for="todoItem in todoItems" v-bind:key="todoItem">
-                        {{ todoItem }}
-                    </li>
+                    <li class="shadow" v-for="(todoItem, index) in todoItems" v-bind:key="todoItem.item">
+                        <span class="checkBtn" v-on:click="checkCompleted(todoItem, index)">
+                            <i class="fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.check}"></i>
+                        </span>    
+                        <span v-bind:class="{textCompleted: todoItem.check}">{{ todoItem.item }}</span>
+                        <span class="removeBtn" v-on:click="removeList(todoItem, index)">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </li>    
                 </ul>
+              
             </div>
         </section>
-
 
         <!-- Footer -->
         <section id="footer">
             <div class="todo__footer">
-                <span class="todo__clear">
+                <span class="todo__clear" v-on:click="clearList">
                     <h3>Clear All</h3>
                 </span>
             </div>

@@ -15,15 +15,15 @@ new Vue({
                 localStorage.setItem(this.query, JSON.stringify(obj));
                 this.todoItems.push(obj);
                 this.query = '';
-                
+
             } else {
-                alert('message');
+                alert('Please enter a message');
             }
         },
 
         removeList(todoItem, index) {
             localStorage.removeItem(todoItem.item);
-            this.todoItems.splice(index, 1);    
+            this.todoItems.splice(index, 1);
         },
 
         checkCompleted(todoItem, index) {
@@ -31,6 +31,7 @@ new Vue({
             localStorage.removeItem(todoItem.item);
             localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
         },
+        
         clearList() {
             localStorage.clear();
             this.todoItems = [];
@@ -38,11 +39,10 @@ new Vue({
     },
     created() {
         if (localStorage.length > 0) {
-            console.log('hi');
             for (let i = 0; i < localStorage.length; i++) {
                 //console.log(JSON.parse(localStorage.getItem(localStorage.key(i))));
                 this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
             }
         }
-    }
+    },
 })

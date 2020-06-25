@@ -13,8 +13,9 @@ new Vue({
             if (this.query !== '') {
                 var obj = { check: false, item: this.query };
                 localStorage.setItem(this.query, JSON.stringify(obj));
-                todoItems.push(obj);
+                this.todoItems.push(obj);
                 this.query = '';
+                
             } else {
                 alert('message');
             }
@@ -32,6 +33,7 @@ new Vue({
         },
         clearList() {
             localStorage.clear();
+            this.todoItems = [];
         }
     },
     created() {

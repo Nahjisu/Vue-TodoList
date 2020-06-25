@@ -40,8 +40,7 @@ body {
 }
 
 
-
-
+/* List */
 ul {
     list-style: none;
     padding-left: 0px;
@@ -60,7 +59,17 @@ ul {
     border-radius: 5px;
   }
 
-  .checkBtn {
+  /* List Transition */
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+
+    .checkBtn {
       line-height: 45px;
       color: #62acde;
       margin-right: 5px;
@@ -81,7 +90,8 @@ ul {
       color: #b3adad;
   }
 
-/* footer */
+
+  /* footer */
 #footer {
     display: flex;
     justify-content: center;
@@ -91,6 +101,7 @@ ul {
     border: 1px solid white;
     border-radius: 17px;
     padding: 0 12px;
+    cursor: pointer;
 }
 
 .todo__clear {
